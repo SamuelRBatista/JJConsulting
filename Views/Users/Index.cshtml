@@ -1,0 +1,30 @@
+﻿@model IEnumerable<JJConsulting.Models.User>
+
+
+@{
+    ViewData["Title"] = "Lista de Usuários";
+}
+
+
+<h1>Lista de Usuários</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Cidade</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.Name</td>
+                <td>@u.Email</td>
+                <td>@u.Address?.City</td>
+                <td><a asp-controller="Users" asp-action="Details" asp-route-id="@u.Id">Detalhes</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

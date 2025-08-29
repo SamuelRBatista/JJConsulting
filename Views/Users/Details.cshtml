@@ -1,0 +1,41 @@
+﻿@model JJConsulting.Models.User
+
+
+@{
+    ViewData["Title"] = "Detalhes do Usuário";
+}
+
+
+<h1>Detalhes</h1>
+<div>
+    <h2>@Model.Name (@Model.Username)</h2>
+    <dl class="row">
+        <dt class="col-sm-2">Email</dt>
+        <dd class="col-sm-10">@Model.Email</dd>
+
+
+        <dt class="col-sm-2">Telefone</dt>
+        <dd class="col-sm-10">@Model.Phone</dd>
+
+
+        <dt class="col-sm-2">Website</dt>
+        <dd class="col-sm-10">@Model.Website</dd>
+
+
+        <dt class="col-sm-2">Endereço</dt>
+        <dd class="col-sm-10">
+            @Model.Address?.Street, @Model.Address?.Suite<br />
+            @Model.Address?.City - @Model.Address?.Zipcode<br />
+            Geo: @Model.Address?.Geo?.Lat , @Model.Address?.Geo?.Lng
+        </dd>
+
+
+        <dt class="col-sm-2">Empresa</dt>
+        <dd class="col-sm-10">
+            @Model.Company?.Name<br />
+            @Model.Company?.CatchPhrase<br />
+            @Model.Company?.Bs
+        </dd>
+    </dl>
+</div>
+<p><a asp-action="Index">Voltar à lista</a></p>
